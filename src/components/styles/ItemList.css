@@ -1,0 +1,22 @@
+.item__container {
+    margin: 0 auto;
+    width: 60%;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    border-radius: .8rem;
+}
+
+.item__container--img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item__container--details {
+    padding-top: 1rem;
+    padding-left: 2rem;
+    font-size: 1.4rem;
+}
