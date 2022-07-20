@@ -4,11 +4,14 @@ import Dashboard from './components/Dashboard';
 import ItemList from './components/ItemList'
 import Navbar from './components/Navbar';
 
+
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [picture, setPicture] = useState('')
+  
+  const [itemList, setItemList] = useState([])
 
   const [formState, setFormState] = useState({
     name: '',
@@ -17,10 +20,13 @@ function App() {
     owner: 'David Evans',
   })
 
+
+
   useEffect(() => {
-    const data = fetch('http://localhost:3000')
+    const data = fetch('http://localhost:3000/api/v1/tools')
       .then(response => response.json());
-    console.log(data);
+    data.then(data => setItemList(data))
+    console.log(itemList);
   },[])
 
   return (
@@ -38,8 +44,13 @@ function App() {
       setPicture={setPicture}
       />
       <Dashboard />
-      <ItemList />
-
+      {itemList.length > 0 && itemList.map(itemList => {
+        return <ItemList 
+        itemList={itemList}
+        setItemList={setItemList}
+        />
+      })
+    }
     </div>
   );
 }
