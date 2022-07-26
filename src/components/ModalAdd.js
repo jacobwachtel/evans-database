@@ -16,7 +16,7 @@ const ModalAdd = ({ formState, setFormState, setIsModalOpen, setName, name, setD
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        // Need to check how to update MOdal
         const postURL = 'http://localhost:8000/api/v1/tools';
         console.log(formState);
         fetch(postURL, {
