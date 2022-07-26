@@ -16,17 +16,19 @@ function App() {
   const [formState, setFormState] = useState({
     name: '',
     description: '',
-    picture: '',
+    image: 'none',
     owner: 'David Evans',
   })
 
-
-
-  useEffect(() => {
-    const data = fetch('http://localhost:3000/api/v1/tools')
+  const fetchData = () => {
+    const data = fetch('http://localhost:8000/api/v1/tools')
       .then(response => response.json());
     data.then(data => setItemList(data))
-    console.log(itemList);
+    // console.log(data);
+  }
+
+  useEffect(() => {
+    fetchData();
   },[])
 
   return (
@@ -45,7 +47,8 @@ function App() {
       />
       <Dashboard />
       {itemList.length > 0 && itemList.map(itemList => {
-        return <ItemList 
+        return <ItemList
+        key={itemList._id}
         itemList={itemList}
         setItemList={setItemList}
         />

@@ -14,19 +14,21 @@ const ModalAdd = ({ formState, setFormState, setIsModalOpen, setName, name, setD
         
     }
 
-    const handleSubmit = () => {
-        const postURL = 'http://localhost:3000/api/v1/tools';
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const postURL = 'http://localhost:8000/api/v1/tools';
+        console.log(formState);
         fetch(postURL, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                ...formState
-            })
+            body: JSON.stringify({...formState})
         })
         .then(() => {
+            // NEED A NEW RESPONSE ONCE IT IS SENT...
             alert('You have added a tool to the system!');
         })
     }
