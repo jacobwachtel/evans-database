@@ -4,19 +4,19 @@ import Dashboard from './components/Dashboard';
 import ItemList from './components/ItemList'
 import Navbar from './components/Navbar';
 
+// TODO: If no file was uploaded, then use default picture
+
+
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [picture, setPicture] = useState('')
+  const [image, setImage] = useState('')
   
   const [itemList, setItemList] = useState([])
 
   const [formState, setFormState] = useState({
-    name: '',
-    description: '',
-    image: 'none',
     owner: 'David Evans',
   })
 
@@ -24,7 +24,6 @@ function App() {
     const data = fetch('http://localhost:8000/api/v1/tools')
       .then(response => response.json());
     data.then(data => setItemList(data))
-    // console.log(data);
   }
 
   useEffect(() => {
@@ -42,8 +41,8 @@ function App() {
       setName={setName}
       description={description}
       setDescription={setDescription}
-      picture={picture}
-      setPicture={setPicture}
+      image={image}
+      setImage={setImage}
       />
       <Dashboard />
       {itemList.length > 0 && itemList.map(itemList => {

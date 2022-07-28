@@ -2,7 +2,7 @@ import React from 'react'
 import ModalAdd from './ModalAdd'
 import './styles/Navbar.css'
 
-const Navbar = ({ formState, setFormState, setIsModalOpen, isModalOpen, name, setName, description, setDescription, picture, setPicture }) => {
+const Navbar = ({ formState, setFormState, setIsModalOpen, isModalOpen, name, setName, description, setDescription, image , setImage }) => {
   return (
     <div>
         <nav className='nav'>
@@ -21,8 +21,8 @@ const Navbar = ({ formState, setFormState, setIsModalOpen, isModalOpen, name, se
                   setName={setName}
                   description={description}
                   setDescription={setDescription}
-                  picture={picture}
-                  setPicture={setPicture}
+                  image={image}
+                  setImage={setImage}
                   /> 
                   
                 }

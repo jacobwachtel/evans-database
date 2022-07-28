@@ -2,35 +2,55 @@ import React from 'react'
 import './styles/ModalAdd.css'
 import { RiCloseLine } from 'react-icons/ri'
 
-const ModalAdd = ({ formState, setFormState, setIsModalOpen, setName, name, setDescription, description, setPicture, picture }) => {
+const ModalAdd = ({ formState, setFormState, setIsModalOpen, setName, name, setDescription, description, setImage, image }) => {
+
+    // const fileUploader = ({})
+
+    const fileInput = React.useRef(null);
+
 
     const handleChange = (e) => {
         // e.preventdefault()
-        let value = e.target.value
+        let value;
+        let name = e.target.name;
+        let type = e.target.type;
+        if(type === 'text') {
+            value = e.target.value;
+        }
+        else if (type === 'file') {
+            value = e.target.files[0]
+        }
         setFormState({
             ...formState,
-            [e.target.name]: value
+            [name]: value
         })
-        
+        // console.log(formState); 
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Need to check how to update MOdal
         const postURL = 'http://localhost:8000/api/v1/tools';
-        console.log(formState);
-        fetch(postURL, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({...formState})
-        })
-        .then(() => {
-            // NEED A NEW RESPONSE ONCE IT IS SENT...
-            alert('You have added a tool to the system!');
-        })
+        console.log(formState, image);
+
+        const formData = new FormData()
+        formData.append(1, "value")
+        console.log(formData);
+
+
+        // fetch(postURL, {
+        //     method: 'POST',
+        //     // headers: {
+        //     //     'Accept': 'application/json',
+        //     //     'Content-Type': 'multipart/form-data; boundary=-----arbitrary boundary',
+        //     //     'type': 'formData'
+        //     // },
+        //     body: {...formState}
+        // })
+        // .then(() => {
+        //     // NEED A NEW RESPONSE ONCE IT IS SENT...
+        //     alert('You have added a tool to the system!');
+        // })
     }
 
   return (
@@ -48,7 +68,7 @@ const ModalAdd = ({ formState, setFormState, setIsModalOpen, setName, name, setD
                     <RiCloseLine style={{ marginBottom: '-3px' }} />
                 </button>
                 <div className='modalContent'>
-                <form className='modalContent__form' onSubmit={handleSubmit}>
+                <form className='modalContent__form' onSubmit={handleSubmit} encType="multipart/form-data" method='post'>
                     <label>
                         <p>Name of Product</p>
                         <input 
@@ -68,10 +88,15 @@ const ModalAdd = ({ formState, setFormState, setIsModalOpen, setName, name, setD
                         />
                     </label>
                     <label>
-                        <p>Picture</p>
-                        <input name="picture" />
+                    <p>Picture</p>
+                    <input 
+                        name="image" 
+                        type="file"
+                        // ref={fileInput}
+                        onChange={handleChange}
+                    /> 
                     </label>
-                    <button type="submit">Submit</button>
+                    <input type="submit" value='submit'/>
                 </form>
                 </div>
                 <div className='modalActions'>
