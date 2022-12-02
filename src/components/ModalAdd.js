@@ -33,21 +33,7 @@ const ModalAdd = ({ formState, setFormState, setIsModalOpen, setName, name, setD
         e.preventDefault();
         // Need to check how to update MOdal
         const formPost = 'http://localhost:8000/api/v1/tools';
-        const imagePost = 'https://api.cloudinary.com/v1_1/evans-db/image/upload';
-        console.log(formState);
-
-        // const shaImage = crypto.createHash('sha1')
-        // shaImage.update('gWCpUZXCx1sknd9Wz8G1nQQLvh8')
-        // shaImage.digest('hex')
-        // console.log(shaImage);
-        // const formData = new FormData()
-        // formData.append("file", formState.file)
-        // formData.append("api_key", "239494999359417")
-        // formData.append("eager", "w_400,h_300,c_pad|w_260,h_200,c_crop")
-        // formData.append("public_id", 'sample-image')
-        // formData.append("timestamp", `${formState.image.timestamp}`)
-        // formData.append("signature", shaImage)
-        // console.log(formData);
+        console.log(formState)
 
         const form_data = new FormData();
         for (const key in formState) {
@@ -69,6 +55,8 @@ const ModalAdd = ({ formState, setFormState, setIsModalOpen, setName, name, setD
             alert('You have added a tool to the system!');
         })
     }
+
+    // const cloudinarySubmit URL - https://spacejelly.dev/posts/how-to-programmatically-upload-images-to-cloudinary-in-react-next-js/
 
   return (
     <>

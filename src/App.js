@@ -17,6 +17,7 @@ function App() {
   const [itemList, setItemList] = useState([])
 
   const [formState, setFormState] = useState({
+    image: 'none',
     owner: 'David Evans',
   })
 
