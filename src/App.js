@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+
 import Dashboard from './components/Dashboard';
 import ItemList from './components/ItemList'
 import Navbar from './components/Navbar';
+import { Spinner } from './components/spinner';
+import { fetchTools, selectAllTools, selectToolStatus } from './redux/tools/toolSlice';
 
-// TODO: If no file was uploaded, then use default picture
-
+import './App.css';
 
 
 function App() {
@@ -14,22 +16,36 @@ function App() {
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
   
-  const [itemList, setItemList] = useState([])
 
   const [formState, setFormState] = useState({
     image: 'none',
     owner: 'David Evans',
   })
 
-  const fetchData = () => {
-    const data = fetch('http://localhost:8000/api/v1/tools')
-      .then(response => response.json());
-    data.then(data => setItemList(data))
-  }
+  const dispatch = useDispatch();
+  const tools = useSelector(selectAllTools)
+  const toolStatus = useSelector(selectToolStatus);
+  
 
   useEffect(() => {
-    fetchData();
-  },[])
+    if (toolStatus === 'idle') {
+      dispatch(fetchTools())
+    }
+    
+  },[toolStatus, dispatch])
+
+  
+  // let content;
+
+  // if (toolStatus === 'loading'){
+  //   content = <Spinner text='loading...' />
+  // } else if (toolStatus === 'succeeded') {
+  //   console.log('succeeded')
+  //   content = 
+  //   })
+  // } else if (toolStatus === 'idle') {
+  //     console.log('idle')
+  // }
 
   return (
     <div className="App">
@@ -46,14 +62,13 @@ function App() {
       setImage={setImage}
       />
       <Dashboard />
-      {itemList.length > 0 && itemList.map(itemList => {
-        return <ItemList
-        key={itemList._id}
-        itemList={itemList}
-        setItemList={setItemList}
-        />
-      })
-    }
+     {tools.length > 0 && tools.map(tools => {
+      return <ItemList
+      key={tools._id}
+      tools={tools}
+      />
+     })
+    } 
     </div>
   );
 }
