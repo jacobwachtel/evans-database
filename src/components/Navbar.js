@@ -1,8 +1,16 @@
 import React from 'react'
-import ModalAdd from './ModalAdd'
+import { useSelector, useDispatch } from 'react-redux'
+import ModalAdd from './ModalForm'
 import './styles/Navbar.css'
 
-const Navbar = ({ formState, setFormState, setIsModalOpen, isModalOpen, name, setName, description, setDescription, image , setImage }) => {
+import { modalOpen } from '../redux/tools/modalSlice'
+
+const Navbar = () => {
+
+  const dispatch = useDispatch();
+  const isModalOpen = useSelector(modalOpen)
+  console.log(isModalOpen)
+
   return (
     <div>
         <nav className='nav'>
@@ -10,19 +18,11 @@ const Navbar = ({ formState, setFormState, setIsModalOpen, isModalOpen, name, se
                 <a 
                   href='#' 
                   className='primaryBtn'
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => dispatch(modalOpen(true))}
                 >Add Item</a>
                 {isModalOpen && 
                   <ModalAdd
-                  formState={formState}
-                  setFormState={setFormState}
-                  setIsModalOpen={setIsModalOpen} 
-                  name={name}
-                  setName={setName}
-                  description={description}
-                  setDescription={setDescription}
-                  image={image}
-                  setImage={setImage}
+                 
                   /> 
                   
                 }

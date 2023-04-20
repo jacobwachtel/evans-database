@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import client from '../../components/services/api'
-import { baseURL } from '../../components/services/api'
+import client from '../../services/api'
+import { baseURL } from '../../services/api'
 import axios from 'axios'
 
 
@@ -59,7 +59,7 @@ const toolsSlice = createSlice({
 
 // console.log();
 
-export const { toolUpdated, toolsReceived } = toolsSlice.actions;
+export const { toolUpdated } = toolsSlice.actions;
 
 export const selectAllTools = (state) => state.tools.tools
 export const selectToolStatus = (state) => state.tools.status

@@ -9,13 +9,6 @@ const baseService = axios.create({
     baseURL: baseURL
 })
 
-// baseService.get(baseService.baseURL)
-//     .then(res => res)
-//     .catch(err => console.log(err))
-
-// export default baseService;
-
-
 const client = async (endpoint, {body, ...customconfig}) => {
     const headers = {'Content-Type': 'application/json'}
 

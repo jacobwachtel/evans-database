@@ -1,6 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
 
 import toolsReducer from './tools/toolSlice'
+import modalReducer from './tools/modalSlice'
 
 
 // const reducer = combineReducers({
@@ -10,6 +11,7 @@ import toolsReducer from './tools/toolSlice'
 export const store = configureStore ({
     reducer: {
         tools: toolsReducer,
+        modal: modalReducer,
     },
 })
 
