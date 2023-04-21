@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Dashboard from './components/Dashboard';
-import ItemList from './components/ItemList'
-import Navbar from './components/Navbar';
+import ItemList from './components/template/ItemList'
+import Navbar from './components/template/Navbar';
+
 
 // TODO: If no file was uploaded, then use default picture
 
@@ -13,9 +14,9 @@ function App() {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
-  
   const [itemList, setItemList] = useState([])
 
+  // console.log(items);
   const [formState, setFormState] = useState({
     owner: 'David Evans',
   })
@@ -28,6 +29,8 @@ function App() {
 
   useEffect(() => {
     fetchData();
+    console.log('hello???')
+    console.log(itemList);
   },[])
 
   return (
@@ -46,6 +49,7 @@ function App() {
       />
       <Dashboard />
       {itemList.length > 0 && itemList.map(itemList => {
+        console.log(itemList);
         return <ItemList
         key={itemList._id}
         itemList={itemList}

@@ -1,6 +1,6 @@
 import React from 'react'
 import ModalAdd from './ModalAdd'
-import './styles/Navbar.css'
+import '../../assets/styles/Navbar.css'
 
 const Navbar = ({ formState, setFormState, setIsModalOpen, isModalOpen, name, setName, description, setDescription, image , setImage }) => {
   return (

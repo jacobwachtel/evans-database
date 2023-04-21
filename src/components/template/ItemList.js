@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/ItemList.css'
+import '../../assets/styles/ItemList.css'
 
 const ItemList = ({ itemList, setItemList}) => {
   const {name, description, image, owner, id} = itemList

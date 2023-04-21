@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./styles/Dashboard.css"
+import "../assets/styles/Dashboard.css"
 
 const Dashboard = () => {
     const [searchTerm, setSearchTerm] = useState()

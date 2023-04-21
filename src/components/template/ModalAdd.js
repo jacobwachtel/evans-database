@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/ModalAdd.css'
+import '../../assets/styles/ModalAdd.css'
 import { RiCloseLine } from 'react-icons/ri'
 
 
