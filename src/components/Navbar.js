@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import ModalAdd from './ModalForm'
 import './styles/Navbar.css'
 
-import { modalOpen } from '../redux/tools/modalSlice'
+import { modalOpen, sliceOfModal } from '../redux/tools/modalSlice'
 
 const Navbar = () => {
 
   const dispatch = useDispatch();
-  const isModalOpen = useSelector(modalOpen)
-  console.log(isModalOpen)
+  const { isOpen } = useSelector((store) => store.modal);
+
 
   return (
     <div>
@@ -18,14 +18,9 @@ const Navbar = () => {
                 <a 
                   href='#' 
                   className='primaryBtn'
-                  onClick={() => dispatch(modalOpen(true))}
+                  onClick={() => dispatch(modalOpen(false))}
                 >Add Item</a>
-                {isModalOpen && 
-                  <ModalAdd
-                 
-                  /> 
-                  
-                }
+                {isOpen && <ModalAdd/> }
             </ul>
         </nav>
     </div>

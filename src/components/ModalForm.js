@@ -3,14 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import './styles/ModalAdd.css'
 import { RiCloseLine } from 'react-icons/ri'
 import FormikForm from './FormikForm';
-import { modalOpen } from '../redux/tools/modalSlice';
+import {  } from '../redux/tools/modalSlice';
+import { modalClosed } from '../redux/tools/modalSlice'
 
 
 
 const ModalAdd = ({ }) => {
 
     const dispatch = useDispatch()
-    const isModalOpen = useSelector(modalOpen)
+    
+    
 
     // const fileUploader = ({}) formState, setFormState, setIsModalOpen, setName, name, setDescription, description, setImage, image
 
@@ -68,18 +70,21 @@ const ModalAdd = ({ }) => {
     <>
         <div 
             className='darkBG' 
-            onClick={() => dispatch(modalOpen(false))}
+            onClick={() => dispatch(modalClosed())}
         />
         <div className='centered'>
             <div className='modal'>
                 <div className='modalHeader'>
                     <h5 className='heading'>Add Product</h5>
                 </div>
-                <button className='closeBtn' onClick={() => dispatch(modalOpen(false))}>
+                <button className='closeBtn' onClick={() => {
+                    dispatch(modalClosed())
+                    
+                }}>
                     <RiCloseLine style={{ marginBottom: '-3px' }} />
                 </button>
                 <div className='modalContent'>
-                    <FormikForm />
+                    {/* <FormikForm /> */}
                 {/* <form className='modalContent__form' onSubmit={handleSubmit} encType="multipart/form-data" method='post'>
                     <label>
                         <p>Name of Product</p>
@@ -113,12 +118,12 @@ const ModalAdd = ({ }) => {
                 </div>
                 <div className='modalActions'>
                     <div className='actionsContainer'>
-                        <button className='deleteBtn' onClick={() => dispatch(modalOpen(false))}>
+                        <button className='deleteBtn' onClick={() => dispatch(modalClosed())}>
                             Add Product
                         </button>
                         <button
                             className='cancelBtn'
-                            onClick={() => dispatch(modalOpen(false))}
+                            onClick={() => dispatch(modalClosed())}
                         >
                             Cancel
                         </button>

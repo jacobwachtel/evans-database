@@ -1,19 +1,26 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    modalOpen: false
+    isOpen: false
 }
 
 const modalSlice = createSlice({
-    name: 'modalOpen',
+    name: 'modal',
     initialState,
     reducers: {
-        modalOpen(state, action) {
-            state.modalOpen = action.payload
-        }
-    }
+        modalOpen: (state, action) => {
+            state.isOpen = true;
+        },
+        modalClosed: (state, action) => {
+            state.isOpen = false;
+        },
+    },
 })
 
-export const modalOpen = (state) => state.modal.modalOpen
+// console.log(state);
+
+export const { modalOpen, modalClosed } = modalSlice.actions;
 
 export default modalSlice.reducer
+
+// export const sliceOfModal = modalSlice.reducer;

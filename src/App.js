@@ -15,6 +15,10 @@ function App() {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
+
+  const stateObj = useSelector(state => state);
+
+    console.log(stateObj);
   
 
   const [formState, setFormState] = useState({
