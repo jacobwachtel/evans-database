@@ -84,7 +84,7 @@ const ModalAdd = ({ }) => {
                     <RiCloseLine style={{ marginBottom: '-3px' }} />
                 </button>
                 <div className='modalContent'>
-                    {/* <FormikForm /> */}
+                    <FormikForm />
                 {/* <form className='modalContent__form' onSubmit={handleSubmit} encType="multipart/form-data" method='post'>
                     <label>
                         <p>Name of Product</p>

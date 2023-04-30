@@ -11,14 +11,10 @@ import './App.css';
 
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
-
-  const stateObj = useSelector(state => state);
-
-    console.log(stateObj);
   
 
   const [formState, setFormState] = useState({
@@ -29,6 +25,8 @@ function App() {
   const dispatch = useDispatch();
   const tools = useSelector(selectAllTools)
   const toolStatus = useSelector(selectToolStatus);
+
+ 
   
 
   useEffect(() => {
@@ -56,8 +54,6 @@ function App() {
       <Navbar 
       formState={formState}
       setFormState={setFormState}
-      setIsModalOpen={setIsModalOpen}
-      isModalOpen={isModalOpen}
       name={name}
       setName={setName}
       description={description}
