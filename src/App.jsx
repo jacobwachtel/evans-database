@@ -52,11 +52,11 @@ function App() {
 
   return (
     <>
-    <header className='shadow'>
+    <header className=''>
       <Navbar />
      
     </header>
-    <main className='container px-4 pb-16 pt-20 text-center'>
+    <main className=''>
       <div>
       <Dashboard 
         searchQuery={searchQuery}
