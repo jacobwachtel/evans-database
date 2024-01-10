@@ -51,22 +51,20 @@ function App() {
   // }
 
   return (
-    <>
+    <div className='flex h-full flex-col'>
     <header className=''>
       <Navbar />
      
     </header>
-    <main className=''>
-      <div>
+    <main className='flex-auto'>
       <Dashboard 
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-      </div>
       <div>
-      {/* <ModalForm /> */}
+      <ModalForm />
       </div>
-      <div className='flex flex-row justify-evenly items-center'>
+      <div className='grid grid-cols-3 gap-4'>
         {tools.length > 0 && tools.map(tools => {
           return <ItemList
             key={tools._id}
@@ -77,7 +75,7 @@ function App() {
         }
       </div>
     </main>
-</>
+</div>
   );
 }
 

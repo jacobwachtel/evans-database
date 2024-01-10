@@ -61,15 +61,15 @@ const ModalForm = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-        <input className='' {...register('toolName')} />
+    <form className='mb-6' onSubmit={handleSubmit(onSubmit)}>
+        <input className='ml-3 pl-2 bg-slate-100 border rounded-md placeholder:italic placeholder:text-slate-500' placeholder='Name of Tool' {...register('toolName')} />
         {errors.toolName && <p className='bg-red-600 '>{errors.toolName.message}</p>}
-        <input {...register('description')} />
+        <input className='ml-3 pl-2 bg-slate-100 border rounded-md placeholder:italic placeholder:text-slate-500' placeholder='Description' {...register('description')} />
         {errors.description && <p className='bg-red-600 '>{errors.description.message}</p>}
-        <input {...register('owner')} />
+        <input className='ml-3 pl-2 bg-slate-100 border rounded-md placeholder:italic placeholder:text-slate-500' placeholder='Owner' {...register('owner')} />
         {errors.owner && <p className='bg-red-600 '>{errors.owner.message}</p>}
         
-            <label htmlFor='fileupload'></label>
+            <label className='ml-3' htmlFor='fileupload'></label>
             <input type='file' id='fileupload' {...register('image')} />
             {errors.image && <p className='bg-red-600 '>{errors.image.message}</p>}
        

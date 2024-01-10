@@ -18,31 +18,31 @@ const Navbar = () => {
       <nav className='flex  justify-between py-8 mx-auto max-w-7xl px-4 sm:px-6 lg:-px-8 relative'>
         <div className='flex items-center justify-center'>
           <div className=''>
-            <img className='w-28' src={logoImage} alt='Tool Tracker company name and image of wrench - logo'></img>
+            <img className='w-32' src={logoImage} alt='Tool Tracker company name and image of wrench - logo'></img>
           </div>
           <ul className='ml-10 flex items-center'>
             <li>
               <a 
                 href='#' 
-                className='rounded-lg px-3 py-2 text-base hover:bg-slate-100 text-grey-700 hover:font-medium transition-colors delay-150 hover:text-gray-900 hover:delay-0'
+                className='rounded-lg px-3 py-2 text-base hover:bg-slate-100 text-grey-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0'
               >Home</a>
             </li>
             <li>
               <a 
                 href='#' 
-                className='rounded-lg px-3 py-2 text-base hover:bg-slate-100 text-grey-700 hover:font-medium transition-colors delay-150 hover:text-gray-900 hover:delay-0'
+                className='rounded-lg px-3 py-2 text-base hover:bg-slate-100 text-grey-700 transition-colors delay-200 hover:text-gray-900 hover:delay-0'
               >Your Tools</a>
             </li>
             <li>
               <a 
                 href='#' 
-                className='rounded-lg px-3 py-2 text-base hover:bg-slate-100 text-grey-700 hover:font-medium transition-colors delay-150 hover:text-gray-900 hover:delay-0'
+                className='rounded-lg px-3 py-2 text-base hover:bg-slate-100 text-grey-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0'
               >"TEST"</a>
             </li>
             <li>
               <a 
                 href='#' 
-                className='rounded-lg px-3 py-2 text-base hover:bg-slate-100 text-grey-700 hover:font-medium transition-colors delay-150 hover:text-gray-900 hover:delay-0'
+                className='rounded-lg px-3 py-2 text-base hover:bg-slate-100 text-grey-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0'
               >"TEST"</a>
             </li>
           </ul>

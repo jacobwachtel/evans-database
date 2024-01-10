@@ -30,17 +30,19 @@ const Dashboard = ({ searchQuery, setSearchQuery }) => {
     // }
 
   return (
-    <div className='mb-10'>
+    <div className='py-32 flex justify-center items-center'>
       <div>
         <h3 className='mb-5 font-medium text-xl '>Search for your tools here:</h3>
-        <input
-        className='bg-slate-100 w-1/4 border '
-        id="search"
-        type="text"
-        placeholder='search items...'
-        value={searchQuery}
-        onChange={handleInputChange}
-        />
+        <label className='relative block'>
+          <input
+          className='w-full bg-slate-100 border rounded-md placeholder:italic placeholder:text-slate-500'
+          id="search"
+          type="text"
+          placeholder='search items...'
+          value={searchQuery}
+          onChange={handleInputChange}
+          />
+        </label>
       </div>
     </div>
   )
